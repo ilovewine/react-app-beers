@@ -1,0 +1,21 @@
+@import 'bootstrap_override';
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  background-color: $gray-800;
+  color: $light;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  opacity: 0.4;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  &.light-primary {
+    background-color: lighten($primary, 15%);
+  }
+}
