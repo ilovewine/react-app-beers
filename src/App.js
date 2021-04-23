@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Grid from './components/Grid/Grid';
 import APIData from './assets/APIData';
 import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 export default class App extends React.Component {
   state = { beers: [] };
@@ -17,13 +18,22 @@ export default class App extends React.Component {
   }
 
   render = () => (
-    <div className="d-flex flex-column">
-      <div className="overlay light-primary" />
-      <Header />
-      <Container className="py-4" as="main">
-        <Grid beers={this.state.beers} />
-      </Container>
-      <Footer />
-    </div>
+    <Router>
+      <div className="d-flex flex-column">
+        <div className="overlay light-primary" />
+        <Header />
+        <Container className="py-4" as="main">
+          <Switch>
+            <Route exact path="/">
+              <Grid beers={this.state.beers} />
+            </Route>
+            <Route path="/beer">
+              <div>Beer</div>
+            </Route>
+          </Switch>
+        </Container>
+        <Footer />
+      </div>
+    </Router>
   );
 }

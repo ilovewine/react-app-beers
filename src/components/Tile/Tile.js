@@ -1,6 +1,7 @@
 import './Tile.scss';
 import { Card, Col, ResponsiveEmbed } from 'react-bootstrap';
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function truncate(text, amount = 100) {
   if (text.length > amount) return text.slice(0, amount) + '...';
@@ -15,16 +16,18 @@ export default class Tile extends React.Component {
 
   render = () => (
     <Col xs={12} sm={6} md={4} lg={3} className="py-3">
-      <Card className="text-dark beer-button">
-        <div className="p-2">
-          <ResponsiveEmbed aspectRatio="1by1">
-            <div className="beer-img" style={{ backgroundImage: `url(${this.state.beer.image_url})` }} />
-          </ResponsiveEmbed>
-        </div>
-        <Card.Body>
-          <Card.Title className="text-center m-0">{truncate(this.state.beer.name, 15)}</Card.Title>
-        </Card.Body>
-      </Card>
+      <LinkContainer to="beer">
+        <Card className="text-dark beer-button">
+          <div className="p-2">
+            <ResponsiveEmbed aspectRatio="1by1">
+              <div className="beer-img" style={{ backgroundImage: `url(${this.state.beer.image_url})` }} />
+            </ResponsiveEmbed>
+          </div>
+          <Card.Body>
+            <Card.Title className="text-center m-0">{truncate(this.state.beer.name, 15)}</Card.Title>
+          </Card.Body>
+        </Card>
+      </LinkContainer>
     </Col>
   );
 }
