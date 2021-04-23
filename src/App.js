@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Grid from './components/Grid/Grid';
 import APIData from './assets/APIData';
+import { Container } from 'react-bootstrap';
 
 export default class App extends React.Component {
   state = { beers: [] };
@@ -19,9 +20,9 @@ export default class App extends React.Component {
     <div className="d-flex flex-column">
       <div className="overlay light-primary" />
       <Header />
-      <main className="flex-shrink-0 container py-4">
+      <Container className="py-4" as="main">
         <Grid beers={this.state.beers} />
-      </main>
+      </Container>
       <Footer />
     </div>
   );

@@ -1,4 +1,5 @@
 import './Tile.scss';
+import { Card, Col, ResponsiveEmbed } from 'react-bootstrap';
 import React from 'react';
 
 function truncate(text, amount = 100) {
@@ -13,23 +14,17 @@ export default class Tile extends React.Component {
   }
 
   render = () => (
-    <div className="col-12 col-sm-6 col-md-4 col-lg-3 py-3">
-      <button className="card text-dark ratio ratio-1x1 row beer-button">
-        <div className="col-12 p-3 d-flex flex-column">
-          <div className="row justify-content-center">
-            <div className="col-12 h-75 w-75">
-              <div className="ratio ratio-1x1">
-                <div style={{ backgroundImage: `url(${this.state.beer.image_url})` }} className="beer-image" />
-              </div>
-            </div>
-          </div>
-          <div className="row mt-auto">
-            <div className="card-body col-12">
-              <h6 className="card-title text-center m-0">{this.state.beer.name}</h6>
-            </div>
-          </div>
+    <Col xs={12} sm={6} md={4} lg={3} className="py-3">
+      <Card className="text-dark beer-button">
+        <div className="p-2">
+          <ResponsiveEmbed aspectRatio="1by1">
+            <div className="beer-img" style={{ backgroundImage: `url(${this.state.beer.image_url})` }} />
+          </ResponsiveEmbed>
         </div>
-      </button>
-    </div>
+        <Card.Body>
+          <Card.Title className="text-center m-0">{truncate(this.state.beer.name, 15)}</Card.Title>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 }

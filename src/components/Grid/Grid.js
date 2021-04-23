@@ -1,5 +1,6 @@
 import React from 'react';
 import Tile from '../Tile/Tile';
+import { Row } from 'react-bootstrap';
 
 export default class Grid extends React.Component {
   constructor(props) {
@@ -15,10 +16,10 @@ export default class Grid extends React.Component {
   }
 
   render = () => (
-    <div className="row">
+    <Row>
       {this.state.beers.map(beer => (
         <Tile beer={beer} key={beer.id} />
       ))}
-    </div>
+    </Row>
   );
 }

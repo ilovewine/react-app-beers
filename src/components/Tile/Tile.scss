@@ -1,20 +1,13 @@
 @import 'src/assets/scss/bootstrap_override';
 
-.beer-image {
+.beer-img {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  &,
-  &-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
 }
 
 .beer-button {
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
   background-color: $secondary;
   &:hover {

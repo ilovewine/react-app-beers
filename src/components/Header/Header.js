@@ -1,41 +1,22 @@
 import React from 'react';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
 export default class Header extends React.Component {
   render = () => (
-    <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            Beers
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mb-2 mb-lg-0 me-3 d-flex justify-content-end flex-grow-1">
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  add new beer
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search for a beer" aria-label="Search" />
-              <button className="btn btn-secondary" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <Navbar sticky="top" bg="primary" className="navbar-dark" expand="md">
+      <Navbar.Brand className="m-0" as="h1" href="/">
+        Beers
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="main-navbar" />
+      <Navbar.Collapse id="main-navbar">
+        <Nav className="ml-auto mr-sm-2">
+          <Nav.Link href="/add">Add new beer</Nav.Link>
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-secondary">Search</Button>
+        </Form>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
