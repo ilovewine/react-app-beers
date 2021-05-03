@@ -16,7 +16,7 @@ export default class Tile extends React.Component {
 
   render = () => (
     <Col xs={12} sm={6} md={4} lg={3} className="py-3">
-      <LinkContainer to="beer">
+      <LinkContainer to={`beer/${this.state.beer.id}`}>
         <Card className="text-dark beer-button">
           <div className="p-2">
             <ResponsiveEmbed aspectRatio="1by1">

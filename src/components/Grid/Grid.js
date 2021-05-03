@@ -8,11 +8,10 @@ export default class Grid extends React.Component {
     this.state = { beers: [] };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.beers.length !== this.props.beers.length)
-      this.setState({
-        beers: this.props.beers,
-      });
+  static getDerivedStateFromProps(props, state) {
+    return {
+      beers: props.beers,
+    };
   }
 
   render = () => (

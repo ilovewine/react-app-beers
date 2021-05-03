@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Grid from './components/Grid/Grid';
+import Beer from './components/Beer/Beer';
 import APIData from './assets/APIData';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -27,9 +28,7 @@ export default class App extends React.Component {
             <Route exact path="/">
               <Grid beers={this.state.beers} />
             </Route>
-            <Route path="/beer">
-              <div>Beer</div>
-            </Route>
+            <Route path="/beer/:id" component={Beer} />
           </Switch>
         </Container>
         <Footer />

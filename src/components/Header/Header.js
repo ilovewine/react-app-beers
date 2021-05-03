@@ -12,7 +12,7 @@ export default class Header extends React.Component {
       <Navbar.Collapse id="main-navbar">
         <Nav className="ml-auto mr-sm-2">
           <LinkContainer to="/add">
-            <Nav.Link>Add new beer</Nav.Link>
+            <Nav.Link>&#43; Add new beer</Nav.Link>
           </LinkContainer>
         </Nav>
         <Form inline>
